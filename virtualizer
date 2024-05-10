@@ -1,0 +1,27 @@
+-- Virtualizer Script for Roblox
+
+local virtualizerService = game:GetService("VirtualizerService")
+
+-- Fungsi untuk membuat virtualizer
+local function createVirtualizer(object)
+local virtualizer = Instance.new("Virtualizer")
+virtualizer.Parent = object
+virtualizer.Enabled = true
+virtualizer.Name = "Virtualizer"
+
+-- Atur properti virtualizer sesuai kebutuhan Anda
+virtualizer.Magnitude = 1 -- Besarnya gaya virtual
+virtualizer.Frequency = 1 -- Frekuensi gaya virtual
+virtualizer.DampingRatio = 0.1 -- Rasio dampling untuk mengurangi oscilasi
+
+return virtualizer
+end
+
+-- Contoh penggunaan: buat virtualizer untuk objek tertentu
+local part = script.Parent:WaitForChild("TargetPart") -- Ganti dengan nama part yang ingin Anda virtualisasi
+if part then
+local virtualizer = createVirtualizer(part)
+
+-- Virtualizer sudah dibuat dan diaktifkan untuk objek tersebut
+print("Virtualizer created for:", part.Name)
+end
